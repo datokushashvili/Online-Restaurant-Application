@@ -1,0 +1,30 @@
+<footer>
+    <div class="top-footer-bg-div">
+        <div class="top-footer">
+            <div class="top-footer-left">
+                <a href="index.html">yoza <br> kura</a>
+            </div>
+            <div class="top-footer-right">
+                <p>SUBSCRIBE TO OUR NEWSLETTER FOR UPDATES & SPECIAL OFFERS</p>
+                <form action="?" method="post" [formGroup]="footerForm" (ngSubmit)="onSubmit()">
+                    <div>
+                        <label for="email">Email *</label>
+                        <input type="text" name="email" id="email" formControlName="email" [ngClass]="{
+                            'error-border': footerForm.controls.email.errors?.['required']
+                                           && footerForm.controls.email.touched
+                                           || footerForm.controls.email.errors?.['email']}">
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+                <div class="socials">
+                    <a href="">instagram</a>
+                    <a href="">facebook</a>
+                    <a href="">tripadvisor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-footer">
+        <p>© 2023 by YOZA KURA. Created by Davit Kushashvili</p>
+    </div>
+</footer>

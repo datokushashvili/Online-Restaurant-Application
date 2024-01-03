@@ -1,0 +1,81 @@
+<main>
+    <section class="contact-content">
+        <div class="contact-title">
+            <h2>contact <span> us <i class="fa-solid fa-arrow-turn-down"></i></span></h2>
+        </div>
+
+        <div class="contact-details">
+            <div class="contact-details-title">
+                <div class="contact-top-bg"></div>
+                <h3>
+                    YOU KNOW WHERE TO FIND US
+                </h3>
+            </div>
+            <div class="contact-details-text">
+                <div class="contact-detail-img">
+                    <img src="../../../assets/imgs/contact-img.webp" alt="">
+                </div>
+                <div class="contact-info">
+                    <div>
+                        <h4>ADDRESS</h4>
+                        <p>500 TERRY FRANCINE STREET <br> SAN FRANCISCO, CA 94158</p>
+                    </div>
+                    <div>
+                        <h4>OPENING HOURS</h4>
+                        <p>MON - FRI: 12PM - 1OPM <br> SATURDAY: 12PM - 12AM <br> SUNDAY: 12PM - 11PM</p>
+                    </div>
+                    <div>
+                        <h4>CONTACT</h4>
+                        <p>PHONE - 123-456-7890 <br> EMAIL - INFO@MYSITE.COM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-page-form">
+        <h3>ASK US ABOUT PRIVATE <br>
+            EVENTS & CATERING SERVICES</h3>
+        <div class="contact-form">
+            <div class="contact-form-left">
+                <form action="?" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                    <div class="user-name">
+                        <div>
+                            <label for="firstName">First Name *</label>
+                            <input type="text" name="firstName" id="firstName" formControlName="firstName"
+                                [ngClass]="{'error-border': contactForm.controls.firstName.errors?.['required'] && contactForm.controls.firstName.touched}">
+                        </div>
+                        <div>
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" name="lastName" id="lastName" formControlName="lastName"
+                                [ngClass]="{'error-border': contactForm.controls.lastName.errors?.['required'] && contactForm.controls.lastName.touched}">
+                        </div>
+                    </div>
+                    <div class="date-input">
+                        <label for="date">Select a Date</label>
+                        <input type="date" id="date" name="date" formControlName="date">
+                    </div>
+                    <div class="email-and-phone">
+                        <div>
+                            <label for="email">Email *</label>
+                            <input type="text" name="email" id="email" formControlName="email" [ngClass]="{
+                                'error-border': contactForm.controls.email.errors?.['required']
+                                               && contactForm.controls.email.touched
+                                               || contactForm.controls.email.errors?.['email']}">
+                        </div>
+                        <div>
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" name="phone" id="phone" formControlName="phone">
+                        </div>
+                    </div>
+                    <label for="message">Write a message</label>
+                    <textarea name="message" id="message" cols="30" rows="3" formControlName="message"></textarea>
+                    <button type="submit" [disabled]="contactForm.invalid" [ngClass]="{ 'disabled-button': contactForm.invalid }">Submit</button>
+
+                </form>
+            </div>
+            <img src="../../../assets/imgs/contact-form-img.webp" alt="contact form image">
+        </div>
+    </section>
+    <div class="contact-page-fixed-bg"></div>
+</main>

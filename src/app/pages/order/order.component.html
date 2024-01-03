@@ -1,0 +1,102 @@
+<main class="order-content">
+    <section class="order-page-title">
+        <h2>online order</h2>
+    </section>
+
+    <section class="filter">
+        <h3>Filter <fa-icon [icon]="filter"></fa-icon></h3>
+        <form [formGroup]="filterForm" (submit)="applyFilter()">
+            <div class="filter-form-top">
+                <div>
+                    <div class="filter-form-top-left">
+                        <div class="filter-nuts">
+                            <input type="checkbox" id="nuts" name="nuts" formControlName="nuts">
+                            <label for="nuts">No nuts</label>
+                        </div>
+                        <div class="filter-vegeterian">
+                            <input type="checkbox" id="vegeterian" name="vegeterian" formControlName="vegetarian">
+                            <label for="vegeterian">Vegetarian only</label>
+                        </div>
+                    </div>
+                    <div class="filter-form-top-right">
+                        <div>
+                            <label style="display: inline" for="range">spiciness: </label>
+                            <span *ngIf="filterForm.controls.spiciness.value == '-1'">notchosen</span>
+                            <span
+                                *ngIf="filterForm.controls.spiciness.value != '-1'">{{filterForm.controls.spiciness.value}}</span>
+                        </div>
+                        <input style="display: block;" id="range" type="range" min="-1" max="4" name="range"
+                            formControlName="spiciness" value="2">
+                    </div>
+                </div>
+                <div class="filter-form-bottom">
+                    <button type="submit">Apply</button>
+                    <button type="button" (click)="clearFilter()">Reset</button>
+                </div>
+            </div>
+
+        </form>
+    </section>
+
+    <section class="categories">
+        <h3 class="categories-title">Categories</h3>
+        <div class="product-categories-buttons">
+            <div class="product-categories">
+                <button *ngIf="showCategoryButton" class="category-button" id="0"
+                    (click)="getAllproductsTest();  addActiveClass(0)"
+                    [ngClass]="{'activeButton': activeCategory === 0}">all</button>
+
+                <button class="category-button" [id]="category.id"
+                    (click)="getCategoryProduct(category.id); addActiveClass(category.id)"
+                    *ngFor="let category of categories"
+                    [ngClass]="{'activeButton': activeCategory === category.id}">{{category.name}}</button>
+            </div>
+        </div>
+    </section>
+
+    <section *ngIf="showAllProducts">
+        <div class="products">
+            <div class="product"
+                *ngFor="let product of allProducts | nutsFilter: nuts | vegetarianFilter: vegetarian | spicinessFilter: spiciness">
+                <div class="product-left">
+                    <img [src]="product.image" alt="">
+                </div>
+                <div class="product-right">
+                    <h4>{{product.name}}</h4>
+                    <p>spiciness:{{product.spiciness}}</p>
+                    <ul>
+                        <li>vegetarian <input type="checkbox" [checked]="product.vegeterian" ></li>
+                        <li>nuts <input type="checkbox" [checked]="product.nuts"></li>
+                    </ul>
+                    <p>price: ${{product.price}}</p>
+                    <div class='add-product-button-div'>
+                        <button class="post" (click)="addProduct(product)">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section *ngIf="showProductByid">
+        <div class="products">
+            <div class="product"
+                *ngFor="let product of productById.products | nutsFilter: nuts | vegetarianFilter: vegetarian | spicinessFilter: spiciness">
+                <div class="product-left">
+                    <img [src]="product.image" alt="">
+                </div>
+                <div class="product-right">
+                    <h4>{{product.name}}</h4>
+                    <p>spiciness:{{product.spiciness}}</p>
+                    <ul>
+                        <li>vegetarian <input type="checkbox" [checked]="product.vegeterian" ></li>
+                        <li>nuts <input type="checkbox" [checked]="product.nuts"></li>
+                    </ul>
+                    <p>price: ${{product.price}}</p>
+                    <div class='add-product-button-div'>
+                        <button class="post" (click)="addProduct(product)">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

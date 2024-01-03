@@ -1,0 +1,17 @@
+<div class="bar-menu-content" *ngIf="barMenu">
+    <div class="bar-menu-content-center-div">
+        <div class="bar-menu-content-top">
+            <p>yoza kura</p>
+            <button class="close-bar-content" (click)="showBarMenu()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="bar-menu-content-bottom">
+            <img src="assets/imgs/bar-img.webp" alt="">
+            <ul>
+                <li><a routerLink="home">home </a></li>
+                <li><a routerLink="order">order online</a></li>
+                <li><a routerLink="contact">contact us</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<button class="open-bars" (click)="showBarMenu()"><fa-icon [icon]="faBars"></fa-icon></button>

@@ -1,0 +1,38 @@
+<h2>My Cart</h2>
+<div class="cart-list">
+    <div class="cart-list-center">
+        <div class="cart-header">
+            <h4>Product</h4>
+            <ul>
+                <li>Qty</li>
+                <li>Price</li>
+                <li>Total</li>
+            </ul>
+        </div>
+        <div class="cart-product" *ngFor="let basketProduct of basketProducts">
+            <div class="cart-product-left">
+                <div>
+                    <button type="button" (click)="deleteProductsFromBasket(basketProduct.product.id)"><fa-icon [icon]="deleteButton"></fa-icon></button>
+                    <img [src]="basketProduct.product.image" alt="" width="80px">
+                </div>
+                <p>{{basketProduct.product.name}}</p>
+            </div>
+            <div class="cart-product-right">
+                <div class="qty-input">
+                    <input type="number" readonly [(ngModel)]="basketProduct.quantity" min="1">
+                    <button class="qty-input-plus" (click)="incrementQuantity(basketProduct)"><fa-icon [icon]="quantityPlus"></fa-icon></button>
+                    <button class="qty-input-min" (click)="decrementQuantity(basketProduct)"><fa-icon [icon]="quantityMinus"></fa-icon></button>
+                </div>
+                <p>{{basketProduct.price}}</p>
+                <p>{{basketProduct.price * basketProduct.quantity}}</p>
+            </div>
+        </div>
+        <div class="cart-empty" *ngIf="cartEmpty">
+            Cart is empty
+        </div>
+        <p class="total-price">Total : <span>{{getTotalPrice()}}</span></p>
+        <div class="checkout">
+            <button (click)="checkout()" [disabled]="cartEmpty">proceed to checkout</button>
+        </div>
+    </div>
+</div>

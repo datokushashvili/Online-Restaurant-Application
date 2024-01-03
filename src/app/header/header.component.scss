@@ -1,0 +1,137 @@
+header {
+    padding: 20px;
+    height: 120px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    transition: 1s;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    background-color: #0f0f0f;
+    background: transparent;
+}
+
+.header-scroll {
+    height: 90px;
+    background-color: black;
+    box-shadow: 0px 1px 8px rgb(232, 98, 61);
+}
+
+.header-center {
+    max-width: 1500px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    width: max-content;
+}
+
+.logo a {
+    font-family: logo-font;
+    color: white;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+
+.logo a span {
+    font-family: logo-font;
+    color: rgb(232, 98, 61);
+}
+
+.right-header {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.right-header nav ul {
+    display: flex;
+    gap: 40px;
+}
+
+.right-header nav ul li a {
+    color: rgb(61, 61, 61);
+    background-color: rgb(255, 223, 210);
+    border-radius: 50px;
+    padding: 15px 35px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    transition: 500ms;
+    border: 1px solid rgb(114, 41, 15);
+}
+
+.right-header nav ul li a:hover {
+    background-color: rgb(201, 169, 213);
+    color: rgb(114, 41, 15);
+}
+
+.right-header .cart {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.right-header .cart fa-icon {
+    position: static;
+    right: -20px;
+    top: 0;
+    transition: 1s;
+}
+
+.right-header .cart:hover fa-icon {
+    transform: translateX(20px);
+    color: rgb(232, 98, 61);
+}
+
+.cart-content {
+    display: none;
+}
+
+.cart-content.active {
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #0f0f0f;
+    top: 0;
+    left: 0;
+}
+
+.cart-content-product {
+    color: white;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid lightgrey;
+}
+
+
+@media screen and (max-width: 960px) {
+    header {
+        .header-center {
+            .right-header {
+                ul {
+                    display: none;
+                }
+
+                .cart {
+                    display: flex;
+                    gap: 5px;
+                }
+            }
+        }
+    }
+}

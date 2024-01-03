@@ -1,0 +1,124 @@
+.top-footer-bg-div {
+  background-image: url(../../assets/imgs/bg/explore-menu-bg.webp);
+  padding: 80px 0;
+}
+
+.top-footer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1500px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.top-footer-right {
+  max-width: 500px;
+}
+
+.top-footer-right p {
+  font-size: 22px;
+  letter-spacing: 2px;
+  line-height: 25px;
+  font-weight: bold;
+}
+
+.top-footer-right form {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin: 30px 0 60px 0;
+}
+
+.top-footer-right form>button {
+  padding: 20px 40px;
+  border: 0;
+  border-radius: 50px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #0f0f0f;
+  background-color: rgb(232, 98, 61);
+}
+
+.top-footer-right form>div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 57px;
+}
+
+.top-footer-right form>div label {
+  color: rgb(44, 44, 44);
+}
+
+.top-footer-right form>div input {
+  background-color: transparent;
+  padding-top: 20px;
+  border: 0;
+  border-bottom: 2px solid black;
+}
+
+.top-footer-right form>div input:active,
+.top-footer-right form>div input:focus,
+.top-footer-right form>div input:hover {
+  border: none;
+  border-bottom: 3px solid rgb(1, 77, 59);
+  outline: none;
+}
+.error-border{
+  border-bottom: 3px solid red !important;
+}
+.top-footer-right .socials a {
+  margin-right: 40px;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: black;
+  font-weight: bold;
+}
+
+.top-footer-left {
+  display: flex;
+  align-items: center;
+}
+
+.top-footer-left a {
+  font-size: 30px;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-weight: bold;
+}
+
+.bottom-footer {
+  background-color: rgb(1, 77, 59);
+  color: white;
+}
+
+.bottom-footer p {
+  max-width: 1540px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+
+@media screen and (max-width: 960px) {
+  .top-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    .top-footer-right{
+      max-width: 300px;
+      text-align: center;
+      form{
+        flex-direction: column;
+      }
+      .socials{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        a{
+          margin: 0;
+        }
+      }
+    }
+  }
+}
